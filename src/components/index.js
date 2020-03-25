@@ -1,3 +1,4 @@
-import App from './App';
+import App from './App/App';
+import CaptorDetail from './CaptorDetail';
 
-export { App };
+export { App, CaptorDetail };
