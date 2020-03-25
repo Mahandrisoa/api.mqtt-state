@@ -6,9 +6,9 @@
 
 ## Auteur(s)
 
-|Nom|Prénom|login|email|
-|--|--|--|--|
-| ??? | ??? | ??? | ???@???.?? |
+| Nom             | Prénom                    | login    | email                                             |
+| --------------- | ------------------------- | -------- | ------------------------------------------------- |
+| ANDRIAMAHERISOA | Nomenjanahary Mahandrisoa | an194860 | nomenjanahary.andriamaherisoa@etu.univ-lehavre.fr |
 
 ## Travail à réaliser
 
