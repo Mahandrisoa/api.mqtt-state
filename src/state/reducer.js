@@ -1,4 +1,9 @@
-import { ADD_SENSOR, UPDATE_SENSOR, DELETE_SENSOR } from './types';
+import {
+  ADD_SENSOR,
+  UPDATE_SENSOR,
+  DELETE_SENSOR,
+  SET_SELECTED_SENSOR,
+} from './types';
 
 const initialState = {
   sensors: [],
@@ -9,8 +14,12 @@ const initialState = {
  *
  * @param {Object} state by default is our initial state
  * @param {Object} action that contains type and sensor payload
+ * @param {Object} selectedSensor that will hold selectedSensor
  */
-function sensorReducer(state = initialState, { type, sensor, selectedSensor }) {
+function sensorReducer(
+  state = initialState,
+  { type, sensor = {}, selectedSensor = {} },
+) {
   switch (type) {
     case ADD_SENSOR:
       return { ...state, sensors: [...state.sensors, sensor] };
