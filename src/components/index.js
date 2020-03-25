@@ -1,4 +1,4 @@
 import App from './App/App';
-import CaptorDetail from './CaptorDetail';
+import SensorDetail from './SensorDetail';
 
-export { App, CaptorDetail };
+export { App, SensorDetail };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import CaptorPage from '../containers/CaptorPage';
 import AboutPage from '../containers/AboutPage';
 import HomePage from '../containers/HomePage';
+import SensorPage from '../containers/SensorPage';
 
 export default function AppRouter() {
   return (
@@ -14,7 +14,7 @@ export default function AppRouter() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/captors">Liste des capteurs</Link>
+              <Link to="/sensors">Liste des capteurs</Link>
             </li>
             <li>
               <Link to="/about">A propos</Link>
@@ -24,8 +24,8 @@ export default function AppRouter() {
       </div>
 
       <Switch>
-        <Route path="/captors">
-          <CaptorPage />
+        <Route path="/sensors">
+          <SensorPage />
         </Route>
         <Route path="/about">
           <AboutPage />

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, Link, useRouteMatch } from 'react-router-dom';
-import { CaptorDetail } from '../../components';
+import { SensorDetail } from '../../components';
 
-function CaptorPage() {
+function SensorPage() {
   let { path, url } = useRouteMatch();
-  const [captors, setCaptors] = useState([
+  const [sensors, setSensors] = useState([
     { label: 'Porte de garage', id: 'captor-1' },
     { label: 'Temp de bureau', id: 'captor-2' },
     { label: 'Ventialeur', id: 'captor-3' },
@@ -12,14 +12,14 @@ function CaptorPage() {
 
   useEffect(() => {
     // Api call
-    // then setCaptors();
+    // then setSensors();
   });
 
   return (
     <div>
       <aside>
         <ul>
-          {captors.map(({ label, id }) => (
+          {sensors.map(({ label, id }) => (
             <li>
               <Link to={`${url}/${id}`}>{label}</Link>
             </li>
@@ -31,12 +31,12 @@ function CaptorPage() {
         <Route exact path={path}>
           <h3>Please select a topic.</h3>
         </Route>
-        <Route path={`${path}/:captorId`}>
-          <CaptorDetail />
+        <Route path={`${path}/:sensorId`}>
+          <SensorDetail />
         </Route>
       </Switch>
     </div>
   );
 }
 
-export default CaptorPage;
+export default SensorPage;
