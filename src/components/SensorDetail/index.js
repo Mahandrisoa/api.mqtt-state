@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { findCaptorById } from '../../utils';
+import { findSensorById } from '../../utils';
+import { data } from '../../mocks/sensorsData';
 
 export default function CaptorDetail() {
-  let { captorId } = useParams();
-  const [captor, setCaptor] = useState({});
-
-  useEffect(() => {
-    setCaptor(findCaptorById(captorId));
-  }, []);
+  let { sensorId } = useParams();
+  const [sensor, setSensor] = useState({});
 
   return (
     <div>
-      <h3>Captor: {captor.label}</h3>
+      <h3>Captor: {sensor.name}</h3>
       <div>
-        <h4>Actual value: {captor.value}</h4>
+        <h4>Actual value: {sensor.value}</h4>
       </div>
     </div>
   );

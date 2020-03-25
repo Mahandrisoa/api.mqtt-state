@@ -1,3 +1,15 @@
-export const findCaptorById = id => {
-  return { label: 'Porte de garage', id: 'captor-1', value: 'OPEN' };
+export const findSensorById = (sensors, sensorId) => {
+  return sensors.find(s => s.id === Number(sensorId));
+};
+
+export const sensorAlreadyExist = (sensors, sensor) => {
+  return selectSensor(sensors, sensor.name) !== undefined;
+};
+
+export const selectSensor = (sensors, sensorName) => {
+  return sensors.find(s => s.name === sensorName);
+};
+
+export const findSensorIndex = (sensors, sensorName) => {
+  return sensors.findIndex(s => s.name === sensorName);
 };

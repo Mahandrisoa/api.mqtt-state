@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, Link, useRouteMatch } from 'react-router-dom';
 import { SensorDetail } from '../../components';
+import { data } from '../../mocks/sensorsData';
 
 function SensorPage() {
   let { path, url } = useRouteMatch();
-  const [sensors, setSensors] = useState([
-    { label: 'Porte de garage', id: 'captor-1' },
-    { label: 'Temp de bureau', id: 'captor-2' },
-    { label: 'Ventialeur', id: 'captor-3' },
-  ]);
+  const [sensors, setSensors] = useState(data);
 
   useEffect(() => {
     // Api call
@@ -19,9 +16,11 @@ function SensorPage() {
     <div>
       <aside>
         <ul>
-          {sensors.map(({ label, id }) => (
+          {sensors.map(({ name, id }) => (
             <li>
-              <Link to={`${url}/${id}`}>{label}</Link>
+              <Link to={`${url}/${id}`}>
+                {name} {id}
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,3 +1,3 @@
-import CaptorPage from './CaptorPage';
+import SensorPage from './SensorPage';
 
-export { CaptorPage };
+export { SensorPage };

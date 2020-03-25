@@ -40,7 +40,7 @@ export const data = [
     },
   },
   {
-    id: 2222,
+    id: 2223,
     name: 'Ventilateur Salle principale',
     type: 'POSITIVE_NUMBER',
     data: {
