@@ -1,5 +1,10 @@
 import sensorReducer from '../reducer';
-import { addSensor, deleteSensor, updateSensor } from '../actions';
+import {
+  addSensor,
+  deleteSensor,
+  updateSensor,
+  setSelectedSensor,
+} from '../actions';
 
 describe('Testing main reducer', () => {
   let initialState;
@@ -51,6 +56,16 @@ describe('Testing main reducer', () => {
     ).toMatchObject({
       sensors: [newSensorValue],
       selectedSensor: null,
+    });
+  });
+
+  test('call to SET_SELECTED_SENSOR action type should update selectedSensor', () => {
+    const firstInitialSensor = initialState.sensors[0];
+    expect(
+      sensorReducer(initialState, setSelectedSensor(firstInitialSensor)),
+    ).toMatchObject({
+      ...initialState,
+      selectedSensor: firstInitialSensor,
     });
   });
 });
