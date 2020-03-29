@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * HOC to which will wrap components
@@ -8,24 +8,30 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-function Provider(WrappedComponent) {
-  // returns React.Component
-  return class extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        store: { ...this.props.store },
-      };
-    }
+class Provider extends React.Component {
+  constructor(props) {
+    super(props);
 
-    componentDidUpdate() {
-      this.setState({ store: { ...this.props.store } });
-    }
+    const store = this.props.store.getState();
+    this.state = {
+      store: store,
+    };
+    /**
+     * todo: set reducer: state to state
+     */
+  }
 
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
-  };
+  componentWillReceiveProps(nextProps) {
+    const { store } = nextProps;
+    this.setState({ store: { ...store } });
+  }
+
+  render() {
+    const propsToPass = this.state;
+    return (
+      <React.Component {...propsToPass}>{this.props.children}</React.Component>
+    );
+  }
 }
 
 Provider.propType = {
