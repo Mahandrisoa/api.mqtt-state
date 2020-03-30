@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 /**
  * HOC to which will wrap components
@@ -21,6 +21,10 @@ class Provider extends React.Component {
      */
   }
 
+  static propType = {
+    store: PropTypes.object,
+  };
+
   componentWillReceiveProps(nextProps) {
     const { store } = nextProps;
     this.setState({ store: { ...store } });
@@ -33,9 +37,5 @@ class Provider extends React.Component {
     );
   }
 }
-
-Provider.propType = {
-  store: PropTypes.object,
-};
 
 export default Provider;
